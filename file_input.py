@@ -1,4 +1,4 @@
-from Creating_parking_lot import Parking_Lot
+from Managing_parking_lot import Parking_Lot
 
 class File:
     def __init__(self):
@@ -8,11 +8,10 @@ class File:
     def Create_Parking(self,row):
         user_input=list(row.split())
         size=int(user_input[1])
-        self.obj.Creat_parking_lot(size)
+        self.obj.Create_parking_lot(size)
 
     def Activities(self,row):
         User_Input=row
         cnt=0
-        while cnt==0:
-            self.obj.Activities(User_Input)
-            cnt+=1
+        self.obj.Activities(User_Input)
+            

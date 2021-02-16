@@ -2,7 +2,7 @@ class Parking_Lot():
     def __init__(self):
         self.area=[]
     
-    def Creat_parking_lot(self,size):
+    def Create_parking_lot(self,size):
         for i in range(size):
             self.area.append([i+1])
         print(f"Created a parking lot with {size} slots")
@@ -12,17 +12,17 @@ class Parking_Lot():
         sub_statement=list(Statement.split())
 
 
-        if sub_statement[0]=="park":
-            if len(sub_statement)==3:
-                for i in range (len(self.area)):
-                    if len(self.area[i])==1:
-                        self.area[i].append(sub_statement[1])
-                        self.area[i].append(sub_statement[2])
-                        print(f"Allocated slot number: {self.area[i][0]}")
-                else:
-                    print("Sorry , Parking lot is full")
-            else:
-                print("You have given a wrong input")
+        if sub_statement[0]=="park" and len(sub_statement)==3:
+            temp="false"
+            for i in range (len(self.area)):
+                if len(self.area[i])==1:
+                    self.area[i].append(sub_statement[1])
+                    self.area[i].append(sub_statement[2])
+                    print(f"Allocated slot number: {self.area[i][0]}")
+                    temp="true"
+                    break
+            if temp=="false":
+                print("Sorry , Parking lot is full")
 
 
         elif sub_statement[0]=="leave":
@@ -36,6 +36,7 @@ class Parking_Lot():
 
 
         elif sub_statement[0]=="status":
+            print("Slot No. Registration No Colour")
             for i in self.area:
                 if len(i)==3:
                     for j in i:
@@ -50,10 +51,11 @@ class Parking_Lot():
                 for i in range (len(self.area)):
                     if colour in self.area[i]:
                         arr.append(self.area[i][1])
-                print(arr)
                 for j in arr:
-                    print(j,end=(","))
-                print()
+                    if j==arr[-1]:
+                        print(j)
+                    else:
+                        print(j,end=(","))
 
 
         elif sub_statement[0]=="slot_numbers_for_cars_with_colour":
@@ -64,8 +66,10 @@ class Parking_Lot():
                     if colour in self.area[i]:
                         arr.append(self.area[i][0])
                 for j in arr:
-                    print(j,end=(","))
-                print()
+                    if j==arr[-1]:
+                        print(j)
+                    else:
+                        print(j,end=(","))
 
 
         elif sub_statement[0]=="slot_number_for_registration_number":
