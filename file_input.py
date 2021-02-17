@@ -1,17 +1,17 @@
-from Managing_parking_lot import Parking_Lot
+from managingparkinglot import parkingLot
 
-class File:
+class fileInput:
     def __init__(self):
-        self.obj=Parking_Lot()
+        self.obj=parkingLot()
 
 
-    def Create_Parking(self,row):
+    def create_Parking(self,row):
         user_input=list(row.split())
         size=int(user_input[1])
-        self.obj.Create_parking_lot(size)
+        self.obj.create_parkinglot(size)
 
-    def Activities(self,row):
+    def activities(self,row):
         User_Input=row
         cnt=0
-        self.obj.Activities(User_Input)
+        self.obj.activities(User_Input)
             

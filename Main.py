@@ -1,5 +1,5 @@
-from interactive import Interactive
-from file_input import File
+from interactive import interactive
+from file_input import fileInput
 
 
 
@@ -8,29 +8,28 @@ if __name__ == "__main__":
     print("There are 2 type of interaction available. 1.interactive for manual input. 2.file input for giving input in a file")
     interaction=input("write interactive or file to choose from them :")
     print()
-    manual=Interactive()
-    auto=File()
+    manual=interactive()
+    auto=fileInput()
 
     if interaction=="interactive":
         cnt=0
         while cnt<2:
             if cnt==0:
-                manual.Create_Parking()
+                manual.create_Parking()
                 cnt+=1
             else:
-                manual.Activities()
+                manual.activities()
                 cnt+=1
         
     
     elif interaction=="file":
-        print("file input must be in this format. ex:C:\\Users\Raj\Desktop/file name")
-        file_address=input("file location please :")
+        file_address="C:\\Users\Raj\Desktop/new.txt"
         f= open(file_address,"r")
         cnt=0
         for row in f:
             if cnt==0:
-                auto.Create_Parking(row)
+                auto.create_Parking(row)
                 cnt+=1
             else:
-                auto.Activities(row)
+                auto.activities(row)
 

@@ -1,14 +1,14 @@
-from Managing_parking_lot import Parking_Lot
+from managingparkinglot import parkingLot
 
-class Interactive:
+class interactive:
     def __init__(self):
-        self.obj=Parking_Lot()
-    def Create_Parking(self):
+        self.obj=parkingLot()
+    def create_Parking(self):
         User_Input=list(input("Creat a parking lot :").split())
         size=int(User_Input[1])
-        self.obj.Create_parking_lot(size)
+        self.obj.create_parkinglot(size)
 
-    def Activities(self):
+    def activities(self):
         temp="true"
         while temp=="true":
             User_Input=input()
@@ -16,5 +16,5 @@ class Interactive:
                 temp="false"
                 break
             else:
-                self.obj.Activities(User_Input)
+                self.obj.activities(User_Input)
         
