@@ -1,43 +1,41 @@
-from entities.park import park
-from entities.leave import leave
-from entities.status import status
-from entities.registration_colour import registrationColour
-from entities.slot_colour import slotColour
-from entities.slot_registration import slotRegistration
+from entities.park import Park
+from entities.leave import Leave
+from entities.status import Status
+from entities.registration_colour import RegistrationColour
+from entities.slot_colour import SlotColour
+from entities.slot_registration import SlotRegistration
+from datetime import datetime
 
 
-class parkingLot():
+class ParkingLot():
     def __init__(self):
         self.area = []
-        self.park = park()
-        self.leave = leave()
-        self.status = status()
-        self.registrationColour = registrationColour()
-        self.slotColour = slotColour()
-        self.slotRegistration = slotRegistration()
+        now = datetime.now()
+        self.current_time = now.strftime("%H:%M:%S")
+        self.current_day = now.strftime("%d/%m/%Y")
 
     def create_parkinglot(self, size):
         for i in range(size):
-            self.area.append([i+1])
+            self.area.append([i + 1])
         print(f"Created a parking lot with {size} slots")
 
     def activities(self, Statement):
         sub_statement = list(Statement.split())
 
         if sub_statement[0] == "park" and len(sub_statement) == 3:
-            park.parking(self.area, sub_statement)
+            Park.parking(self.area, sub_statement, self.current_day, self.current_time)
 
         elif sub_statement[0] == "leave":
-            leave.leave(self.area, sub_statement)
+            Leave.leave(self.area, sub_statement, self.current_day, self.current_time)
 
         elif sub_statement[0] == "status":
-            status.status(self.area)
+            Status.status(self.area)
 
         elif sub_statement[0] == "registration_numbers_for_cars_with_colour":
-            registrationColour.registration_colour(self.area, sub_statement)
+            RegistrationColour.registration_colour(self.area, sub_statement)
 
         elif sub_statement[0] == "slot_numbers_for_cars_with_colour":
-            slotColour.slot_colour(self.area, sub_statement)
+            SlotColour.slot_colour(self.area, sub_statement)
 
         elif sub_statement[0] == "slot_number_for_registration_number":
-            slotRegistration.slot_registration(self.area, sub_statement)
+            SlotRegistration.slot_registration(self.area, sub_statement)

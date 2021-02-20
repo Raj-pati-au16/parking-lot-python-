@@ -1,9 +1,9 @@
-from managingparkinglot import parkingLot
+from managingparkinglot import ParkingLot
 
 
-class interactive:
+class Interactive:
     def __init__(self):
-        self.obj = parkingLot()
+        self.obj = ParkingLot()
 
     def create_Parking(self):
         User_Input = list(input("Creat a parking lot :").split())

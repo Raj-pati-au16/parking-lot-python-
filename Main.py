@@ -1,12 +1,12 @@
-from interactive import interactive
-from file_input import fileInput
+from interactive import Interactive
+from file_input import FileInput
 if __name__ == "__main__":
 
     print("Type interactive for manual input or file for auto inputs.")
     interaction = input("write interactive or file to choose from them :")
     print()
-    manual = interactive()
-    auto = fileInput()
+    manual = Interactive()
+    auto = FileInput()
 
     if interaction == "interactive":
         cnt = 0
@@ -19,7 +19,7 @@ if __name__ == "__main__":
                 cnt += 1
 
     elif interaction == "file":
-        file_address = "C:\\Users\Raj\Desktop/new.txt"
+        file_address = "new.txt"
         f = open(file_address, "r")
         cnt = 0
         for row in f:

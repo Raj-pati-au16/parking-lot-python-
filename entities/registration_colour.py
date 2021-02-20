@@ -1,4 +1,4 @@
-class registrationColour:
+class RegistrationColour:
     def registration_colour(area, sub_statement):
         if len(sub_statement) == 2:
             colour = sub_statement[1]

@@ -1,4 +1,4 @@
-class slotRegistration:
+class SlotRegistration:
     def slot_registration(area, sub_statement):
         if len(sub_statement) == 2:
             for i in range(len(area)):

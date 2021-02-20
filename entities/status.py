@@ -1,4 +1,4 @@
-class status:
+class Status:
     def status(area):
         print("Slot No. Registration No Colour")
         for i in area:
